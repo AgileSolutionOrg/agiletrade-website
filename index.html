@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agile Trade | Inteligencia comercial para freight rates</title>
+    <meta
+      name="description"
+      content="Agile Trade conecta agentes de carga aos melhores rates do mercado internacional com dados, tendencias e alertas em tempo real."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navegacao principal">
+      <a class="brand" href="#top" aria-label="Agile Trade inicio">
+        <img src="assets/logo_agile.png" alt="Agile Trade" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Menu">
+        <a href="#produto">Produto <span aria-hidden="true">&#8964;</span></a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#planos">Planos</a>
+        <a href="#recursos">Recursos <span aria-hidden="true">&#8964;</span></a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="#entrar">Entrar</a>
+        <a class="btn btn-primary" href="#criar-conta">Criar conta</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="produto">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="map-grid"></div>
+          <div class="route route-one"></div>
+          <div class="route route-two"></div>
+          <div class="ship">
+            <div class="ship-hull"></div>
+            <div class="ship-containers"></div>
+            <div class="ship-bridge"></div>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Inteligencia comercial para freight rates</p>
+          <h1>Compare. Analise. Decida <span>melhor.</span></h1>
+          <p class="hero-copy">
+            Agile Trade e a plataforma inteligente que conecta agentes de carga aos
+            melhores rates do mercado internacional, com dados completos, historico,
+            tendencias e alertas em tempo real.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="#criar-conta">Comecar agora <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn-video btn-large" href="#como-funciona">
+              <span class="play" aria-hidden="true"></span>
+              Ver como funciona
+            </a>
+          </div>
+          <ul class="trust-list" aria-label="Destaques de confianca">
+            <li>
+              <span class="mini-icon clock" aria-hidden="true"></span>
+              Dados atualizados todos os dias
+            </li>
+            <li>
+              <span class="mini-icon shield" aria-hidden="true"></span>
+              Seguranca e confiabilidade
+            </li>
+            <li>
+              <span class="mini-icon speed" aria-hidden="true"></span>
+              Mais agilidade nas suas cotacoes
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Previa do aplicativo Agile Trade">
+          <div class="laptop">
+            <div class="laptop-base"></div>
+            <div class="laptop-screen"></div>
+          </div>
+
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-status">9:37 <span>&#9652; &#9648;</span></div>
+            <div class="phone-logo">
+              <img src="assets/logo_agile.png" alt="Agile Trade" />
+            </div>
+            <div class="phone-section-title">Buscar Rates</div>
+            <div class="field">
+              <small>Porto de Origem</small>
+              <strong>Shanghai, CN</strong>
+            </div>
+            <div class="field">
+              <small>Porto de Destino</small>
+              <strong>Itajai, BR</strong>
+            </div>
+            <div class="field">
+              <small>Tipo de Container</small>
+              <strong>40HC</strong>
+            </div>
+            <div class="field">
+              <small>Servico</small>
+              <strong>Todos os servicos</strong>
+            </div>
+            <button class="phone-cta" type="button">Buscar rates</button>
+            <div class="recent-head">
+              <span>Buscas recentes</span>
+              <a href="#historico">Ver todas</a>
+            </div>
+            <div class="recent-item">
+              <strong>Shanghai, CN &rarr; Itajai, BR</strong>
+              <small>40HC &middot; 20/05/2024</small>
+            </div>
+            <div class="recent-item">
+              <strong>Ningbo, CN &rarr; Santos, BR</strong>
+              <small>40HC &middot; 19/05/2024</small>
+            </div>
+            <div class="recent-item">
+              <strong>Shenzhen, CN &rarr; Paranagua, BR</strong>
+              <small>20GP &middot; 18/05/2024</small>
+            </div>
+          </div>
+
+          <div class="floating-cards">
+            <article class="rate-card">
+              <span class="card-icon blue" aria-hidden="true">&#8644;</span>
+              <div>
+                <h3>Melhores rates</h3>
+                <p>Compare precos entre agentes e armadores</p>
+              </div>
+            </article>
+            <article class="rate-card">
+              <span class="card-icon red" aria-hidden="true">&#9775;</span>
+              <div>
+                <h3>Dados completos</h3>
+                <p>Transit time, validade, free time e muito mais</p>
+              </div>
+            </article>
+            <article class="rate-card">
+              <span class="card-icon green" aria-hidden="true">$</span>
+              <div>
+                <h3>Inteligencia</h3>
+                <p>Historico, tendencias e alertas personalizados</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-strip" id="funcionalidades" aria-label="Funcionalidades">
+        <article>
+          <span class="feature-icon search" aria-hidden="true">&#8981;</span>
+          <div>
+            <h2>Busca Inteligente</h2>
+            <p>Encontre rapidamente os melhores rates para qualquer rota.</p>
+          </div>
+        </article>
+        <article>
+          <span class="feature-icon compare" aria-hidden="true">&#9878;</span>
+          <div>
+            <h2>Comparativo Visual</h2>
+            <p>Compare precos, transit time e condicoes de forma clara e objetiva.</p>
+          </div>
+        </article>
+        <article>
+          <span class="feature-icon trend" aria-hidden="true">&#8599;</span>
+          <div>
+            <h2>Historico e Tendencias</h2>
+            <p>Acompanhe a evolucao dos precos e tome decisoes com mais confianca.</p>
+          </div>
+        </article>
+        <article>
+          <span class="feature-icon alert" aria-hidden="true">&#9826;</span>
+          <div>
+            <h2>Alertas Personalizados</h2>
+            <p>Receba notificacoes de novos rates, aumentos, expiracao e oportunidades.</p>
+          </div>
+        </article>
+        <article>
+          <span class="feature-icon favorite" aria-hidden="true">&#9734;</span>
+          <div>
+            <h2>Favoritos</h2>
+            <p>Salve suas rotas e agentes preferidos para consultas rapidas.</p>
+          </div>
+        </article>
+        <article>
+          <span class="feature-icon secure" aria-hidden="true">&#9825;</span>
+          <div>
+            <h2>Seguro e Confiavel</h2>
+            <p>Seus dados protegidos com alta tecnologia e total seguranca.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="product-section" id="beneficios">
+        <div class="dashboard-preview" aria-label="Dashboard Agile Trade">
+          <aside class="app-sidebar">
+            <div class="sidebar-logo">
+              <img src="assets/logo_agile.png" alt="Agile Trade" />
+            </div>
+            <a class="active" href="#dashboard">Dashboard</a>
+            <a href="#buscar">Buscar Rates</a>
+            <a href="#favoritos">Favoritos</a>
+            <a href="#alertas">Alertas <span>3</span></a>
+            <a href="#historico">Historico</a>
+            <a href="#relatorios">Relatorios</a>
+            <a href="#agentes">Agentes</a>
+            <a href="#configuracoes">Configuracoes</a>
+          </aside>
+
+          <div class="dashboard-content">
+            <h2>Dashboard</h2>
+            <div class="metrics">
+              <article>
+                <small>Buscas realizadas</small>
+                <strong>128</strong>
+                <span>+12% vs mes anterior</span>
+              </article>
+              <article>
+                <small>Melhor rate encontrado</small>
+                <strong>USD 1.980</strong>
+                <span>Shanghai &rarr; Itajai | 40HC</span>
+              </article>
+              <article>
+                <small>Alertas ativos</small>
+                <strong>3</strong>
+                <span>Ver alertas</span>
+              </article>
+              <article>
+                <small>Rotas favoritas</small>
+                <strong>24</strong>
+                <span>Ver todas</span>
+              </article>
+            </div>
+
+            <div class="dashboard-grid">
+              <article class="chart-card">
+                <div class="chart-head">
+                  <h3>Tendencia de Precos - Shanghai &rarr; Itajai | 40HC</h3>
+                  <button type="button">Ultimos 30 dias</button>
+                </div>
+                <div class="legend">
+                  <span class="msc">MSC</span>
+                  <span class="hapag">Hapag-Lloyd</span>
+                  <span class="maersk">Maersk</span>
+                </div>
+                <svg class="chart" viewBox="0 0 560 220" role="img" aria-label="Grafico de tendencia de precos">
+                  <defs>
+                    <linearGradient id="gridFade" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#dde6f2" />
+                      <stop offset="100%" stop-color="#edf3fb" />
+                    </linearGradient>
+                  </defs>
+                  <g class="grid-lines">
+                    <line x1="48" y1="24" x2="540" y2="24"></line>
+                    <line x1="48" y1="64" x2="540" y2="64"></line>
+                    <line x1="48" y1="104" x2="540" y2="104"></line>
+                    <line x1="48" y1="144" x2="540" y2="144"></line>
+                    <line x1="48" y1="184" x2="540" y2="184"></line>
+                  </g>
+                  <g class="y-labels">
+                    <text x="8" y="29">2.600</text>
+                    <text x="8" y="69">2.400</text>
+                    <text x="8" y="109">2.200</text>
+                    <text x="8" y="149">2.000</text>
+                    <text x="8" y="189">1.800</text>
+                  </g>
+                  <polyline class="line-blue" points="70,58 98,72 126,78 154,82 182,79 210,88 238,80 266,100 294,126 322,132 350,123 378,138 406,144 434,140 462,142 490,144 518,140" />
+                  <polyline class="line-red" points="70,84 98,88 126,96 154,92 182,94 210,91 238,90 266,102 294,124 322,120 350,90 378,86 406,112 434,116 462,96 490,94 518,90" />
+                  <polyline class="line-green" points="70,118 98,124 126,127 154,135 182,140 210,152 238,160 266,164 294,170 322,174 350,168 378,166 406,176 434,170 462,164 490,160 518,156" />
+                  <g class="x-labels">
+                    <text x="61" y="211">20/04</text>
+                    <text x="148" y="211">27/04</text>
+                    <text x="272" y="211">04/05</text>
+                    <text x="404" y="211">11/05</text>
+                    <text x="500" y="211">18/05</text>
+                  </g>
+                </svg>
+              </article>
+
+              <article class="rates-list">
+                <h3>Melhores Rates</h3>
+                <div>
+                  <span>MSC / Air Sea</span>
+                  <strong>USD 2.100</strong>
+                  <small>32 dias | 20/05/2024</small>
+                </div>
+                <div>
+                  <span>Hapag-Lloyd / Air Sea</span>
+                  <strong>USD 2.180</strong>
+                  <small>29 dias | 18/05/2024</small>
+                </div>
+                <div>
+                  <span>Maersk / BLU</span>
+                  <strong>USD 2.320</strong>
+                  <small>35 dias | 17/05/2024</small>
+                </div>
+                <a href="#resultados">Ver todos os resultados</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-copy" id="como-funciona">
+          <h2>Tudo o que seu comercial precisa, <span>em um so lugar.</span></h2>
+          <p>
+            Agile Trade centraliza informacoes de centenas de agentes e armadores
+            para que voce ganhe tempo, aumente sua competitividade e feche mais negocios.
+          </p>
+          <ul>
+            <li>Informacoes atualizadas diariamente</li>
+            <li>Cobertura global de rotas e armadores</li>
+            <li>Interface moderna e intuitiva</li>
+            <li>Acesso web e mobile</li>
+          </ul>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="#criar-conta">Criar conta gratis</a>
+            <a class="btn btn-outline" href="#contato">Falar com um especialista</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

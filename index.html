@@ -1,340 +1,436 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agile Trade | Inteligencia comercial para freight rates</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Agile Trade | Inteligência comercial para freight rates</title>
     <meta
       name="description"
-      content="Agile Trade conecta agentes de carga aos melhores rates do mercado internacional com dados, tendencias e alertas em tempo real."
+      content="Agile Trade conecta agentes de carga aos melhores rates do mercado internacional com dados, tendências e alertas em tempo real."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#001a3f",
+              "on-primary-fixed-variant": "#32476d",
+              "on-secondary-fixed-variant": "#93000d",
+              "tertiary-container": "#001a41",
+              primary: "#000000",
+              "on-secondary-fixed": "#410002",
+              "on-tertiary-container": "#2480ff",
+              background: "#f7f9fb",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e0e3e5",
+              "surface-bright": "#f7f9fb",
+              "secondary-container": "#e51d24",
+              "surface-variant": "#e0e3e5",
+              "surface-dim": "#d8dadc",
+              "inverse-primary": "#b2c7f5",
+              "on-surface-variant": "#44474e",
+              "on-surface": "#191c1e",
+              "on-tertiary-fixed": "#001a41",
+              error: "#ba1a1a",
+              secondary: "#bb0014",
+              "primary-fixed-dim": "#b2c7f5",
+              "on-error": "#ffffff",
+              "surface-container": "#eceef0",
+              "secondary-fixed": "#ffdad6",
+              "secondary-fixed-dim": "#ffb4ac",
+              "primary-fixed": "#d7e2ff",
+              "on-background": "#191c1e",
+              "primary-container": "#001a3f",
+              "tertiary-fixed": "#d8e2ff",
+              "tertiary-fixed-dim": "#adc6ff",
+              outline: "#74777f",
+              tertiary: "#000000",
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#eff1f3",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-container": "#6f84ae",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#4a5e87",
+              "surface-container-high": "#e6e8ea",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#2d3133",
+              "on-tertiary-fixed-variant": "#004493",
+              "outline-variant": "#c4c6cf",
+              surface: "#f7f9fb",
+              "on-secondary-container": "#fffbff",
+              "on-secondary": "#ffffff",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              "container-max": "1440px",
+              "gutter-sm": "16px",
+              base: "4px",
+              "margin-desktop": "48px",
+              "gutter-md": "24px",
+              "margin-mobile": "16px",
+            },
+            fontFamily: {
+              "display-lg": ["Montserrat"],
+              "headline-lg-mobile": ["Montserrat"],
+              "label-md": ["Inter"],
+              caption: ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Montserrat"],
+              "body-md": ["Inter"],
+              "headline-md": ["Montserrat"],
+            },
+            fontSize: {
+              "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+              "label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+              caption: ["12px", { lineHeight: "1.4", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+              "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .ia-glow {
+        box-shadow: 0 0 15px rgba(36, 128, 255, 0.4);
+      }
+      .circuit-line {
+        background-image: linear-gradient(90deg, #32476d 1px, transparent 1px);
+        background-size: 40px 100%;
+      }
+      .bento-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .bento-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.08);
+      }
+    </style>
   </head>
-  <body>
-    <header class="site-header" aria-label="Navegacao principal">
-      <a class="brand" href="#top" aria-label="Agile Trade inicio">
-        <img src="assets/logo_agile.png" alt="Agile Trade" />
-      </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="nav-links" aria-label="Menu">
-        <a href="#produto">Produto <span aria-hidden="true">&#8964;</span></a>
-        <a href="#funcionalidades">Funcionalidades</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#planos">Planos</a>
-        <a href="#recursos">Recursos <span aria-hidden="true">&#8964;</span></a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="btn btn-ghost" href="https://app.agiletrade.com.br">Entrar</a>
-        <a class="btn btn-primary" href="https://app.agiletrade.com.br">Criar conta</a>
+  <body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <!-- Seção Hero -->
+    <header class="relative overflow-hidden bg-primary-container text-on-primary py-24 md:py-32">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full circuit-line"></div>
       </div>
-    </header>
-
-    <main id="top">
-      <section class="hero" id="produto">
-        <div class="hero-bg" aria-hidden="true">
-          <div class="map-grid"></div>
-          <div class="route route-one"></div>
-          <div class="route route-two"></div>
-          <div class="ship">
-            <div class="ship-hull"></div>
-            <div class="ship-containers"></div>
-            <div class="ship-bridge"></div>
+      <div class="max-w-container-max mx-auto px-margin-desktop relative z-10 flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-on-tertiary-container/10 border border-on-tertiary-container/30 mb-8"
+          >
+            <span class="material-symbols-outlined text-on-tertiary-container" style="font-size: 18px;">neurology</span>
+            <span class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-wider"
+              >Inteligência comercial para freight rates</span
+            >
           </div>
-        </div>
-
-        <div class="hero-content">
-          <p class="eyebrow">Inteligencia comercial para freight rates</p>
-          <h1>Compare. Analise. Decida <span>melhor.</span></h1>
-          <p class="hero-copy">
-            Agile Trade e a plataforma inteligente que conecta agentes de carga aos
-            melhores rates do mercado internacional, com dados completos, historico,
-            tendencias e alertas em tempo real.
+          <h1 class="font-display-lg text-display-lg md:text-6xl mb-6">
+            Compare. Analise.<br />
+            <span class="text-secondary-fixed">Decida melhor.</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-primary-container max-w-xl mb-10">
+            A Agile Trade é a plataforma inteligente que conecta agentes de carga aos melhores rates do mercado
+            internacional com dados em tempo real.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary btn-large" href="https://app.agiletrade.com.br">Comecar agora <span aria-hidden="true">&rarr;</span></a>
-            <a class="btn btn-video btn-large" href="#como-funciona">
-              <span class="play" aria-hidden="true"></span>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a
+              href="https://app.agiletrade.com.br"
+              class="bg-secondary text-white font-bold px-8 py-4 rounded-lg text-lg flex items-center justify-center gap-2 hover:bg-secondary-container transition-all ia-glow"
+            >
+              Começar agora
+              <span class="material-symbols-outlined">trending_flat</span>
+            </a>
+            <a
+              href="#como-funciona"
+              class="border border-on-primary-container text-on-primary font-bold px-8 py-4 rounded-lg text-lg flex items-center justify-center gap-2 hover:bg-on-primary/5 transition-all"
+            >
+              <span class="material-symbols-outlined">play_circle</span>
               Ver como funciona
             </a>
           </div>
-          <ul class="trust-list" aria-label="Destaques de confianca">
-            <li>
-              <span class="mini-icon clock" aria-hidden="true"></span>
-              Dados atualizados todos os dias
-            </li>
-            <li>
-              <span class="mini-icon shield" aria-hidden="true"></span>
-              Seguranca e confiabilidade
-            </li>
-            <li>
-              <span class="mini-icon speed" aria-hidden="true"></span>
-              Mais agilidade nas suas cotacoes
-            </li>
-          </ul>
         </div>
-
-        <div class="hero-visual" aria-label="Previa do aplicativo Agile Trade">
-          <div class="laptop">
-            <div class="laptop-base"></div>
-            <div class="laptop-screen"></div>
-          </div>
-
-          <div class="phone">
-            <div class="phone-notch"></div>
-            <div class="phone-status">9:37 <span>&#9652; &#9648;</span></div>
-            <div class="phone-logo">
-              <img src="assets/logo_agile.png" alt="Agile Trade" />
-            </div>
-            <div class="phone-section-title">Buscar Rates</div>
-            <div class="field">
-              <small>Porto de Origem</small>
-              <strong>Shanghai, CN</strong>
-            </div>
-            <div class="field">
-              <small>Porto de Destino</small>
-              <strong>Itajai, BR</strong>
-            </div>
-            <div class="field">
-              <small>Tipo de Container</small>
-              <strong>40HC</strong>
-            </div>
-            <div class="field">
-              <small>Servico</small>
-              <strong>Todos os servicos</strong>
-            </div>
-            <button class="phone-cta" type="button">Buscar rates</button>
-            <div class="recent-head">
-              <span>Buscas recentes</span>
-              <a href="#historico">Ver todas</a>
-            </div>
-            <div class="recent-item">
-              <strong>Shanghai, CN &rarr; Itajai, BR</strong>
-              <small>40HC &middot; 20/05/2024</small>
-            </div>
-            <div class="recent-item">
-              <strong>Ningbo, CN &rarr; Santos, BR</strong>
-              <small>40HC &middot; 19/05/2024</small>
-            </div>
-            <div class="recent-item">
-              <strong>Shenzhen, CN &rarr; Paranagua, BR</strong>
-              <small>20GP &middot; 18/05/2024</small>
-            </div>
-          </div>
-
-          <div class="floating-cards">
-            <article class="rate-card">
-              <span class="card-icon blue" aria-hidden="true">&#8644;</span>
-              <div>
-                <h3>Melhores rates</h3>
-                <p>Compare precos entre agentes e armadores</p>
-              </div>
-            </article>
-            <article class="rate-card">
-              <span class="card-icon red" aria-hidden="true">&#9775;</span>
-              <div>
-                <h3>Dados completos</h3>
-                <p>Transit time, validade, free time e muito mais</p>
-              </div>
-            </article>
-            <article class="rate-card">
-              <span class="card-icon green" aria-hidden="true">$</span>
-              <div>
-                <h3>Inteligencia</h3>
-                <p>Historico, tendencias e alertas personalizados</p>
-              </div>
-            </article>
+        <div class="flex-1 w-full max-w-2xl">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-on-primary-container/20 group">
+            <img
+              alt="Prévia do aplicativo Agile Trade"
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdzEhDJrLlXmGDJ6bZSyuX2H5eYnorWmKQXkY2oaovRRsCdMQCZIdQjkn_K8fhj_4qmdqd_ZKL0_pyzYZfiQwv5te4OcePwbI8TVH6YH0h3i11kAzdaWeK2SEyqjOUrBTGKDuz39qhsmTL5GqMu6wc0MyiDxaDLazYZ_6u1tEQq_QeH3Gr7e1zVmv3P8teQPiTqf2tzyYpQ-75qKOh7VRlArkL26KPzT4D7YB0C5owXQfsqsqdbPdKV3iUAY1XpYDkXzQG-CRsMwTc"
+            />
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary-container/40 to-transparent"></div>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <section class="feature-strip" id="funcionalidades" aria-label="Funcionalidades">
-        <article>
-          <span class="feature-icon search" aria-hidden="true">&#8981;</span>
-          <div>
-            <h2>Busca Inteligente</h2>
-            <p>Encontre rapidamente os melhores rates para qualquer rota.</p>
-          </div>
-        </article>
-        <article>
-          <span class="feature-icon compare" aria-hidden="true">&#9878;</span>
-          <div>
-            <h2>Comparativo Visual</h2>
-            <p>Compare precos, transit time e condicoes de forma clara e objetiva.</p>
-          </div>
-        </article>
-        <article>
-          <span class="feature-icon trend" aria-hidden="true">&#8599;</span>
-          <div>
-            <h2>Historico e Tendencias</h2>
-            <p>Acompanhe a evolucao dos precos e tome decisoes com mais confianca.</p>
-          </div>
-        </article>
-        <article>
-          <span class="feature-icon alert" aria-hidden="true">&#9826;</span>
-          <div>
-            <h2>Alertas Personalizados</h2>
-            <p>Receba notificacoes de novos rates, aumentos, expiracao e oportunidades.</p>
-          </div>
-        </article>
-        <article>
-          <span class="feature-icon favorite" aria-hidden="true">&#9734;</span>
-          <div>
-            <h2>Favoritos</h2>
-            <p>Salve suas rotas e agentes preferidos para consultas rapidas.</p>
-          </div>
-        </article>
-        <article>
-          <span class="feature-icon secure" aria-hidden="true">&#9825;</span>
-          <div>
-            <h2>Seguro e Confiavel</h2>
-            <p>Seus dados protegidos com alta tecnologia e total seguranca.</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="product-section" id="beneficios">
-        <div class="dashboard-preview" aria-label="Dashboard Agile Trade">
-          <aside class="app-sidebar">
-            <div class="sidebar-logo">
-              <img src="assets/logo_agile.png" alt="Agile Trade" />
+    <!-- Grade de Funcionalidades -->
+    <section class="py-24 bg-surface" id="funcionalidades">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="text-center mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Potencialize seu comércio</h2>
+          <div class="h-1 w-24 bg-secondary mx-auto rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Busca Inteligente -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">search</span>
             </div>
-            <a class="active" href="#dashboard">Dashboard</a>
-            <a href="#buscar">Buscar Rates</a>
-            <a href="#favoritos">Favoritos</a>
-            <a href="#alertas">Alertas <span>3</span></a>
-            <a href="#historico">Historico</a>
-            <a href="#relatorios">Relatorios</a>
-            <a href="#agentes">Agentes</a>
-            <a href="#configuracoes">Configuracoes</a>
-          </aside>
-
-          <div class="dashboard-content">
-            <h2>Dashboard</h2>
-            <div class="metrics">
-              <article>
-                <small>Buscas realizadas</small>
-                <strong>128</strong>
-                <span>+12% vs mes anterior</span>
-              </article>
-              <article>
-                <small>Melhor rate encontrado</small>
-                <strong>USD 1.980</strong>
-                <span>Shanghai &rarr; Itajai | 40HC</span>
-              </article>
-              <article>
-                <small>Alertas ativos</small>
-                <strong>3</strong>
-                <span>Ver alertas</span>
-              </article>
-              <article>
-                <small>Rotas favoritas</small>
-                <strong>24</strong>
-                <span>Ver todas</span>
-              </article>
+            <h3 class="font-headline-md text-headline-md mb-3">Busca Inteligente</h3>
+            <p class="text-on-surface-variant">
+              Algoritmos avançados que filtram instantaneamente as melhores rotas e tarifas globais.
+            </p>
+          </div>
+          <!-- Comparativo Visual -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-red-100 text-secondary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">compare_arrows</span>
             </div>
+            <h3 class="font-headline-md text-headline-md mb-3">Comparativo Visual</h3>
+            <p class="text-on-surface-variant">
+              Analise lado a lado tempos de trânsito, validade e taxas extras de forma intuitiva.
+            </p>
+          </div>
+          <!-- Historico e Tendencias -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-green-100 text-green-600 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">show_chart</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-3">Histórico e Tendências</h3>
+            <p class="text-on-surface-variant">
+              Acompanhe a volatilidade do mercado com gráficos históricos e previsões baseadas em IA.
+            </p>
+          </div>
+          <!-- Alertas Personalizados -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">notifications_active</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-3">Alertas Personalizados</h3>
+            <p class="text-on-surface-variant">
+              Seja o primeiro a saber sobre quedas de preços ou expiração de fretes em suas rotas favoritas.
+            </p>
+          </div>
+          <!-- Favoritos -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-yellow-100 text-yellow-600 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">star</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-3">Favoritos</h3>
+            <p class="text-on-surface-variant">
+              Salve rotas e agentes preferenciais para consultas ultra-rápidas e recorrentes.
+            </p>
+          </div>
+          <!-- Seguro e Confiavel -->
+          <div class="bento-card bg-white p-8 rounded-xl border border-outline-variant">
+            <div class="w-12 h-12 rounded-lg bg-cyan-100 text-cyan-600 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined" style="font-size: 32px;">verified_user</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-3">Seguro e Confiável</h3>
+            <p class="text-on-surface-variant">
+              Seus dados protegidos com criptografia de ponta a ponta e compliance global.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="dashboard-grid">
-              <article class="chart-card">
-                <div class="chart-head">
-                  <h3>Tendencia de Precos - Shanghai &rarr; Itajai | 40HC</h3>
-                  <button type="button">Ultimos 30 dias</button>
+    <!-- Seção Prévia do Dashboard -->
+    <section class="py-24 bg-white relative overflow-hidden" id="beneficios">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="bg-surface-container rounded-3xl p-8 md:p-12 border border-outline-variant shadow-xl">
+          <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/3">
+              <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Interface focada na performance</h2>
+              <p class="text-on-surface-variant mb-8 font-body-lg">
+                Visualize todo o seu fluxo comercial em um único dashboard intuitivo, com dados consolidados dos
+                maiores armadores do mundo.
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border-l-4 border-secondary">
+                  <div class="text-2xl font-bold text-primary">128</div>
+                  <div class="text-sm text-on-surface-variant">
+                    Buscas realizadas<br /><span class="text-green-600 font-bold">+12% vs mês ant.</span>
+                  </div>
                 </div>
-                <div class="legend">
-                  <span class="msc">MSC</span>
-                  <span class="hapag">Hapag-Lloyd</span>
-                  <span class="maersk">Maersk</span>
+                <div
+                  class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border-l-4 border-on-tertiary-container"
+                >
+                  <div class="text-2xl font-bold text-primary">USD 1.980</div>
+                  <div class="text-sm text-on-surface-variant">
+                    Melhor rate encontrado<br /><span class="text-on-tertiary-container">Shanghai &rarr; Itajaí</span>
+                  </div>
                 </div>
-                <svg class="chart" viewBox="0 0 560 220" role="img" aria-label="Grafico de tendencia de precos">
-                  <defs>
-                    <linearGradient id="gridFade" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#dde6f2" />
-                      <stop offset="100%" stop-color="#edf3fb" />
-                    </linearGradient>
-                  </defs>
-                  <g class="grid-lines">
-                    <line x1="48" y1="24" x2="540" y2="24"></line>
-                    <line x1="48" y1="64" x2="540" y2="64"></line>
-                    <line x1="48" y1="104" x2="540" y2="104"></line>
-                    <line x1="48" y1="144" x2="540" y2="144"></line>
-                    <line x1="48" y1="184" x2="540" y2="184"></line>
-                  </g>
-                  <g class="y-labels">
-                    <text x="8" y="29">2.600</text>
-                    <text x="8" y="69">2.400</text>
-                    <text x="8" y="109">2.200</text>
-                    <text x="8" y="149">2.000</text>
-                    <text x="8" y="189">1.800</text>
-                  </g>
-                  <polyline class="line-blue" points="70,58 98,72 126,78 154,82 182,79 210,88 238,80 266,100 294,126 322,132 350,123 378,138 406,144 434,140 462,142 490,144 518,140" />
-                  <polyline class="line-red" points="70,84 98,88 126,96 154,92 182,94 210,91 238,90 266,102 294,124 322,120 350,90 378,86 406,112 434,116 462,96 490,94 518,90" />
-                  <polyline class="line-green" points="70,118 98,124 126,127 154,135 182,140 210,152 238,160 266,164 294,170 322,174 350,168 378,166 406,176 434,170 462,164 490,160 518,156" />
-                  <g class="x-labels">
-                    <text x="61" y="211">20/04</text>
-                    <text x="148" y="211">27/04</text>
-                    <text x="272" y="211">04/05</text>
-                    <text x="404" y="211">11/05</text>
-                    <text x="500" y="211">18/05</text>
-                  </g>
-                </svg>
-              </article>
-
-              <article class="rates-list">
-                <h3>Melhores Rates</h3>
-                <div>
-                  <span>MSC / Air Sea</span>
-                  <strong>USD 2.100</strong>
-                  <small>32 dias | 20/05/2024</small>
+              </div>
+            </div>
+            <div class="lg:w-2/3 bg-white rounded-2xl shadow-inner border border-outline-variant p-6 relative overflow-hidden">
+              <div class="flex justify-between items-center mb-8">
+                <h4 class="font-headline-md text-primary">Tendência de preços | 40HC</h4>
+                <div class="flex gap-4">
+                  <span class="flex items-center gap-1.5 text-xs font-semibold"
+                    ><span class="w-3 h-3 rounded-full bg-blue-500"></span> MSC</span
+                  >
+                  <span class="flex items-center gap-1.5 text-xs font-semibold"
+                    ><span class="w-3 h-3 rounded-full bg-red-500"></span> Hapag-Lloyd</span
+                  >
+                  <span class="flex items-center gap-1.5 text-xs font-semibold"
+                    ><span class="w-3 h-3 rounded-full bg-green-500"></span> Maersk</span
+                  >
                 </div>
-                <div>
-                  <span>Hapag-Lloyd / Air Sea</span>
-                  <strong>USD 2.180</strong>
-                  <small>29 dias | 18/05/2024</small>
+              </div>
+              <!-- Grafico simplificado -->
+              <div class="h-64 flex items-end justify-between gap-1 border-b border-outline-variant relative">
+                <div class="absolute inset-0 flex flex-col justify-between opacity-5">
+                  <div class="border-t border-primary w-full"></div>
+                  <div class="border-t border-primary w-full"></div>
+                  <div class="border-t border-primary w-full"></div>
                 </div>
-                <div>
-                  <span>Maersk / BLU</span>
-                  <strong>USD 2.320</strong>
-                  <small>35 dias | 17/05/2024</small>
+                <div class="flex-1 bg-blue-500/10 rounded-t-sm border-t-2 border-blue-500 h-[60%] transition-all hover:h-[65%]"></div>
+                <div class="flex-1 bg-red-500/10 rounded-t-sm border-t-2 border-red-500 h-[80%] transition-all hover:h-[85%]"></div>
+                <div class="flex-1 bg-green-500/10 rounded-t-sm border-t-2 border-green-500 h-[45%] transition-all hover:h-[50%]"></div>
+                <div class="flex-1 bg-blue-500/10 rounded-t-sm border-t-2 border-blue-500 h-[70%] transition-all hover:h-[75%]"></div>
+                <div class="flex-1 bg-red-500/10 rounded-t-sm border-t-2 border-red-500 h-[55%] transition-all hover:h-[60%]"></div>
+                <div class="flex-1 bg-green-500/10 rounded-t-sm border-t-2 border-green-500 h-[90%] transition-all hover:h-[95%]"></div>
+              </div>
+              <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-lg bg-surface flex justify-between items-center">
+                  <div>
+                    <p class="text-xs font-bold text-on-surface-variant uppercase">MSC / Air Sea</p>
+                    <p class="text-lg font-bold text-primary">USD 2.100</p>
+                  </div>
+                  <span class="text-xs text-green-600 font-bold">Mais barato</span>
                 </div>
-                <a href="#resultados">Ver todos os resultados</a>
-              </article>
+                <div class="p-4 rounded-lg bg-surface flex justify-between items-center">
+                  <div>
+                    <p class="text-xs font-bold text-on-surface-variant uppercase">Hapag-Lloyd</p>
+                    <p class="text-lg font-bold text-primary">USD 2.180</p>
+                  </div>
+                  <span class="material-symbols-outlined text-outline">arrow_forward</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="section-copy" id="como-funciona">
-          <h2>Tudo o que seu comercial precisa, <span>em um so lugar.</span></h2>
-          <p>
-            Agile Trade centraliza informacoes de centenas de agentes e armadores
-            para que voce ganhe tempo, aumente sua competitividade e feche mais negocios.
+    <!-- Proposta de Valor -->
+    <section class="py-24 bg-primary-container text-on-primary" id="como-funciona">
+      <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row items-center gap-16">
+        <div class="flex-1">
+          <h2 class="font-display-lg text-display-lg mb-8 leading-tight">
+            Tudo o que seu comercial precisa, <span class="text-on-tertiary-container">em um só lugar.</span>
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-primary-container mb-12">
+            A Agile Trade centraliza informações de centenas de agentes e armadores para que você ganhe tempo, aumente
+            sua competitividade e feche mais negócios.
           </p>
-          <ul>
-            <li>Informacoes atualizadas diariamente</li>
-            <li>Cobertura global de rotas e armadores</li>
-            <li>Interface moderna e intuitiva</li>
-            <li>Acesso web e mobile</li>
+          <ul class="space-y-6">
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-white" style="font-size: 20px;">check</span>
+              </div>
+              <span class="font-body-lg">Informações atualizadas diariamente</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-white" style="font-size: 20px;">check</span>
+              </div>
+              <span class="font-body-lg">Cobertura global de rotas e armadores</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-white" style="font-size: 20px;">check</span>
+              </div>
+              <span class="font-body-lg">Interface moderna e intuitiva</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-white" style="font-size: 20px;">check</span>
+              </div>
+              <span class="font-body-lg">Acesso via web e mobile</span>
+            </li>
           </ul>
-          <div class="section-actions">
-            <a class="btn btn-primary" href="https://app.agiletrade.com.br">Criar conta gratis</a>
-            <a class="btn btn-outline" href="#contato">Falar com um especialista</a>
+          <div class="mt-12 flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://app.agiletrade.com.br"
+              class="bg-secondary text-white font-bold px-10 py-5 rounded-lg text-lg hover:bg-secondary-container transition-all text-center"
+              >Criar conta grátis</a
+            >
+            <a
+              href="#contato"
+              class="border border-on-primary-container text-on-primary font-bold px-10 py-5 rounded-lg text-lg hover:bg-white/5 transition-all text-center"
+              >Falar com um especialista</a
+            >
           </div>
         </div>
-      </section>
-    </main>
+        <div class="flex-1 relative hidden md:block">
+          <!-- Visualizacao abstrata do globo / comercio -->
+          <div class="w-[500px] h-[500px] rounded-full border border-on-primary-container/30 relative flex items-center justify-center">
+            <div class="w-[400px] h-[400px] rounded-full border border-on-primary-container/40 flex items-center justify-center">
+              <div class="w-[300px] h-[300px] rounded-full border border-on-primary-container/50 bg-on-tertiary-container/5 animate-pulse"></div>
+            </div>
+            <div class="absolute flex flex-col items-center gap-5">
+              <img
+                alt="Aplicativo Agile Trade no celular"
+                src="assets/app_mobile.png"
+                class="w-[280px] h-auto drop-shadow-2xl"
+              />
+              <div class="flex items-center gap-3">
+                <a href="https://play.google.com/store" aria-label="Disponível no Google Play">
+                  <img class="h-9 w-auto" alt="Disponível no Google Play" src="assets/badge_google_play.png" />
+                </a>
+                <a href="https://www.apple.com/app-store/" aria-label="Baixar na App Store">
+                  <img class="h-9 w-auto" alt="Baixar na App Store" src="assets/badge_app_store.svg" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="bg-primary-container dark:bg-black border-t border-on-primary-container" id="contato">
+      <div class="max-w-container-max mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
+        <div class="flex flex-col items-center md:items-start gap-4">
+          <img alt="Agile Trade" class="h-24 brightness-0 invert" src="assets/logo_agile.png" />
+          <p class="font-body-md text-body-md text-on-primary-container">
+            &copy; 2024 Agile Trade. Inteligência em freight rates potencializada por IA.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8">
+          <a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-all hover:underline" href="#"
+            >Termos de uso</a
+          >
+          <a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-all hover:underline" href="#"
+            >Politica de privacidade</a
+          >
+          <a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-all hover:underline" href="#"
+            >Suporte</a
+          >
+          <a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-all hover:underline" href="#"
+            >Documentação</a
+          >
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

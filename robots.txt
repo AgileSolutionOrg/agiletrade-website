@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agiletrade.com.br/sitemap.xml

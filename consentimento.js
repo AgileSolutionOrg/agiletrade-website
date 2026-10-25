@@ -55,8 +55,33 @@
     window.gtag("config", ID_GA, { anonymize_ip: true });
   }
 
+  /**
+   * Apaga os cookies do Google Analytics (_ga e _ga_<id>). Eles sao gravados no
+   * dominio raiz com ponto (".agiletrade.com.br"), entao apagar so no host nao
+   * basta: tenta o host e cada dominio pai.
+   */
+  function apagarCookiesAnalytics() {
+    var nomes = document.cookie.split(";").map(function (c) {
+      return c.split("=")[0].trim();
+    }).filter(function (n) {
+      return n === "_ga" || n.indexOf("_ga_") === 0 || n === "_gid";
+    });
+    var partes = location.hostname.split(".");
+    var dominios = [""];
+    for (var i = 0; i < partes.length - 1; i++) {
+      dominios.push("; domain=." + partes.slice(i).join("."));
+    }
+    nomes.forEach(function (nome) {
+      dominios.forEach(function (d) {
+        document.cookie = nome + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + d;
+      });
+    });
+  }
+
   function montarAviso() {
+    if (document.getElementById("at-aviso-cookies")) return;
     var caixa = document.createElement("div");
+    caixa.id = "at-aviso-cookies";
     caixa.setAttribute("role", "dialog");
     caixa.setAttribute("aria-live", "polite");
     caixa.setAttribute("aria-label", "Aviso sobre cookies");
@@ -109,8 +134,23 @@
     }
 
     recusar.addEventListener("click", function () {
+      var tinhaAceitado = ler() === "sim";
       gravar("nao");
       fechar();
+      // Revogacao (LGPD art. 8 §5): o script do Analytics ja carregado nao se
+      // descarrega sozinho. Apagar os cookies e recarregar e o que faz a
+      // medicao parar de fato — "recusar" que segue medindo nao e revogacao.
+      if (tinhaAceitado || window.__atAnalyticsCarregado) {
+        // Primeiro desliga o GA ja carregado: sem isso ele regrava o cookie de
+        // sessao (_ga_<id>) no unload da pagina, depois de apagado — o teste
+        // de 25/10 pegou exatamente isso.
+        window["ga-disable-" + ID_GA] = true;
+        if (typeof window.gtag === "function") {
+          window.gtag("consent", "update", { analytics_storage: "denied" });
+        }
+        apagarCookiesAnalytics();
+        location.reload();
+      }
     });
     aceitar.addEventListener("click", function () {
       gravar("sim");
@@ -125,13 +165,35 @@
     document.body.appendChild(caixa);
   }
 
+  /**
+   * "Preferencias de cookies": qualquer elemento com data-preferencias-cookies
+   * (o link do rodape de cada pagina) reabre o aviso. A ANPD pede que revogar
+   * seja tao simples quanto aceitar; antes, a unica saida era limpar os dados
+   * do site no navegador.
+   */
+  function ligarPreferencias() {
+    var gatilhos = document.querySelectorAll("[data-preferencias-cookies]");
+    for (var i = 0; i < gatilhos.length; i++) {
+      gatilhos[i].addEventListener("click", function (ev) {
+        ev.preventDefault();
+        montarAviso();
+      });
+    }
+  }
+
   function iniciar() {
+    ligarPreferencias();
     var escolha = ler();
     if (escolha === "sim") {
       carregarAnalytics();
       return;
     }
-    if (escolha === "nao") return;
+    if (escolha === "nao") {
+      // Rede de seguranca: qualquer cookie de medicao que tenha sobrado de
+      // quando a pessoa aceitava some aqui, a cada pagina aberta.
+      apagarCookiesAnalytics();
+      return;
+    }
     montarAviso();
   }
 

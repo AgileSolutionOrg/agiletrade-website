@@ -28,13 +28,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <meta name="theme-color" content="#001a3f" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="assets/css/fontes.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
     <style>
       body { font-family: "Inter", system-ui, sans-serif; }
       h1, h2, h3 { font-family: "Montserrat", "Inter", sans-serif; }
@@ -45,7 +40,10 @@
       .doc ul { margin: 0 0 1rem 1.25rem; list-style: disc; }
       .doc li { margin-bottom: 0.5rem; }
       .doc a { color: #c00011; text-decoration: underline; }
-      .doc table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
+      /* No celular a tabela de 3 colunas nao cabe em 375px: rola sozinha, sem
+         empurrar a pagina inteira para o lado. */
+      .doc .tabela { overflow-x: auto; margin-bottom: 1.5rem; }
+      .doc table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.9rem; }
       .doc th, .doc td { border: 1px solid #e2e2e6; padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
       .doc th { background: #f3f3f7; color: #001a3f; font-weight: 700; }
     </style>
@@ -63,7 +61,7 @@
     <main class="max-w-4xl mx-auto px-6 py-12 doc">
       <h1 class="text-3xl font-extrabold text-[#001a3f] mb-2">Política de Privacidade</h1>
       <p class="text-sm text-[#74777f] mb-8">
-        Vigente desde 1º de outubro de 2026 &middot; última atualização em 1º de outubro de 2026
+        Vigente desde 25 de outubro de 2026 &middot; última atualização em 25 de outubro de 2026
       </p>
 
       <p>
@@ -93,6 +91,7 @@
       </ul>
 
       <h2>2. Quais dados tratamos</h2>
+      <div class="tabela">
       <table>
         <thead>
           <tr>
@@ -131,6 +130,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <p>
         <strong>Não tratamos dados pessoais sensíveis</strong> e não usamos os dados de nenhum cliente para treinar
         modelos, alimentar base de terceiros ou compor qualquer produto de dados. A tabela de frete de um cliente nunca
@@ -142,7 +142,13 @@
         O site usa <strong>Google Analytics 4</strong> para medir audiência. Ele só é carregado
         <strong>depois que você aceita</strong> no aviso que aparece na primeira visita &mdash; se você recusar, o
         Analytics não é carregado e nenhum cookie de medição é criado. Sua escolha fica guardada no seu próprio
-        navegador e pode ser alterada limpando os dados do site.
+        navegador e pode ser alterada a qualquer momento pelo link
+        <a href="#" data-preferencias-cookies>Preferências de cookies</a>, no rodapé de todas as páginas. Se você
+        tinha aceitado e passar a recusar, os cookies de medição são apagados e o Analytics deixa de ser carregado.
+      </p>
+      <p>
+        As fontes e os estilos do site são servidos pelo próprio site: abrir uma página não envia seus dados a
+        nenhum outro serviço antes da sua escolha.
       </p>
       <p>
         A plataforma <strong>app.agiletrade.com.br</strong> não usa cookies de medição nem de publicidade: ela guarda no
@@ -160,6 +166,10 @@
         <li><strong>Microsoft 365</strong> &mdash; caixa de e-mail pela qual respondemos aos contatos.</li>
         <li><strong>FormSubmit</strong> &mdash; serviço que entrega o formulário de contato do site à nossa caixa de e-mail.</li>
         <li><strong>Google Analytics</strong> &mdash; medição de audiência, somente com o seu consentimento.</li>
+        <li>
+          <strong>WhatsApp (Meta)</strong> &mdash; somente se você escolher nos chamar pelo botão de WhatsApp; a
+          conversa segue também os termos e a política do próprio WhatsApp.
+        </li>
       </ul>
       <p>
         Parte desses prestadores está fora do Brasil, o que caracteriza <strong>transferência internacional</strong>.
@@ -246,9 +256,11 @@
         <p>&copy; 2026 Agile Trade &mdash; um produto Agile Solution.</p>
         <div class="flex gap-6">
           <a class="hover:underline" href="termos.html">Termos de uso</a>
+          <a class="hover:underline" href="#" data-preferencias-cookies>Preferências de cookies</a>
           <a class="hover:underline" href="/">Início</a>
         </div>
       </div>
     </footer>
+    <script src="consentimento.js"></script>
   </body>
 </html>

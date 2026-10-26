@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+  Pagina de confirmacao do formulario de contato.
+
+  O FormSubmit, sem o campo _next, joga quem envia numa pagina de agradecimento
+  DELE, com a marca do servico e sem caminho de volta — o lead acha que caiu
+  fora do site. Esta pagina e para onde o _next aponta.
+
+  noindex de proposito: nao e conteudo para busca, e indexa-la poria um
+  "obrigado" como resultado do Google para quem procura a Agile Trade.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Recebemos seu contato | Agile Trade</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#001a3f" />
+    <link rel="stylesheet" href="assets/css/fontes.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <style>
+      body { font-family: "Inter", system-ui, sans-serif; }
+      h1 { font-family: "Montserrat", "Inter", sans-serif; }
+    </style>
+  </head>
+  <body class="bg-[#001a3f] text-white min-h-screen flex flex-col">
+    <header class="px-6 py-5">
+      <a href="/" aria-label="Agile Trade — início">
+        <img alt="Agile Trade" class="h-12 w-auto" src="assets/logo_marca.png" />
+      </a>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center px-6 py-12">
+      <div class="max-w-xl text-center">
+        <div
+          class="w-16 h-16 rounded-full bg-white/10 border border-white/30 flex items-center justify-center mx-auto mb-8"
+        >
+          <span class="material-symbols-outlined text-[36px]">check</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4">Recebemos seu contato</h1>
+        <p class="text-white/80 text-lg mb-8">
+          Vamos responder em até um dia útil. Se você informou a rota que mais cota, já chegamos na conversa com o
+          painel respondendo ela.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://wa.me/5554981299854?text=Ol%C3%A1!%20Acabei%20de%20pedir%20uma%20demonstra%C3%A7%C3%A3o%20do%20Agile%20Trade."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-[#c00011] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#93000d] transition-all inline-flex items-center justify-center gap-2"
+          >
+            <span class="material-symbols-outlined">chat</span>
+            Falar agora no WhatsApp
+          </a>
+          <a
+            href="/"
+            class="border border-white/40 text-white font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-all inline-flex items-center justify-center gap-2"
+          >
+            Voltar ao site
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="px-6 py-8 text-center text-sm text-white/60">
+      <p>
+        &copy; 2026 Agile Trade &mdash; um produto Agile Solution &middot;
+        <a class="hover:underline" href="privacidade.html">Política de Privacidade</a> &middot;
+        <a class="hover:underline" href="#" data-preferencias-cookies>Preferências de cookies</a>
+      </p>
+    </footer>
+    <script src="consentimento.js"></script>
+  </body>
+</html>
